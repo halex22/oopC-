@@ -20,13 +20,26 @@ namespace oopC_
                 ? t + (n.Amount + (n.Amount * DepositModifier))
                 : t + ( n.Amount - (Math.Abs(n.Amount) * WithdrawModifier)));
 
-        public bool CanTransactionProceed(decimal amount) 
+        public bool CanTransactionProceed(decimal amount)
         {
-            if (amount < 0 && Balance <= 0) return false;
+            decimal userBalance = Balance;
 
-            if (amount < 0 && (Balance -  amount) <= 0) return false;
+            
 
-            return true;
+            if (Customer is VipCustomer vip)
+            {
+                if ((userBalance - amount) > vip.negativeThreshold) return true;
+                return false;
+            }
+            else
+            {
+                if (amount < 0 && userBalance <= 0) return false;
+           
+                if (amount < 0 && (userBalance - amount) < 0) return false;
+
+                return true;
+            }
+
         }
 
         public void Operate(decimal transactionAmount)

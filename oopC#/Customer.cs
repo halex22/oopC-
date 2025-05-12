@@ -27,6 +27,7 @@ namespace oopC_
         {
             MailAddress = mailAddress;
             Address = address;
+
         }
 
 
@@ -44,6 +45,7 @@ namespace oopC_
         {
             return Name + " " + Surname + "\n" + MailAddress.Replace(", ", "\n");
         }
+
     }
 
     enum PaymentMethod

@@ -26,8 +26,10 @@ namespace oopC_
             savingAccount.Operate(-100);
             savingAccount.Operate(50);
             savingAccount.Operate(-10);
+            savingAccount.Operate(-70);
+
             Console.WriteLine(savingAccount.ToString());
-            Console.WriteLine(savingAccount.Balance);
+            Console.WriteLine($"Client balance: {savingAccount.Balance}");
 
 
         }

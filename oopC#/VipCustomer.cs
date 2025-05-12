@@ -11,7 +11,7 @@ namespace oopC_
 
 
         private string? namePrefix {  get; set; }
-        private decimal negativeThreshold { get; set; }
+        public decimal negativeThreshold { get; set; }
 
         public VipCustomer(string name, string surname, DateTime dob, string address, string mailAddress, decimal threshold) : base(name, surname, dob, address, mailAddress)
         {
@@ -33,5 +33,6 @@ namespace oopC_
         {
             return namePrefix + " " + base.PrintAddress();
         }
+
     }
 }
